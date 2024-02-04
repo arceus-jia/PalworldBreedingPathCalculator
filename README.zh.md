@@ -8,6 +8,6 @@
 直接下载calculator_zh.html，用电脑或者手机浏览器打开即可，
 
 # todo
-- 英文版
 - autocomplete 名称
 - 稍微美化下页面
+- add image
