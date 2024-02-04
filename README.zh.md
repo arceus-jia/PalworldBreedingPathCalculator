@@ -1,4 +1,4 @@
-# PalworldBreedingPathCalculator (帕鲁教培最短路径生成器)
+# PalworldBreedingPathCalculator (帕鲁交配最短路径生成器)
 **Read this in other languages: [English](README.md), [中文](README.zh.md).**
 <br >
 一个纯html编写的简单的帕鲁交配路径生成器
