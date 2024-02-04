@@ -1,11 +1,13 @@
 # PalworldBreedingPathCalculator (帕鲁教培最短路径生成器)
 **Read this in other languages: [English](README.md), [中文](README.zh.md).**
-一个简单的帕鲁交配路径生成器，为了方便不懂技术的同学，所以是一个纯的html页面。
+<br >
+一个纯html编写的简单的帕鲁交配路径生成器
+![image](https://github.com/arceus-jia/PalworldBreedingPathCalculator/blob/main/zh.png)
 
 # 使用方法
-直接下载calculator_zh.html，用电脑或者手机浏览器打开即可，不需要联网
+直接下载calculator_zh.html，用电脑或者手机浏览器打开即可，
 
 # todo
-英文版
-autocomplete 名称
-稍微美化下页面
+- 英文版
+- autocomplete 名称
+- 稍微美化下页面
