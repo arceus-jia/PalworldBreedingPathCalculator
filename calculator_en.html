@@ -45,7 +45,7 @@
                 box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
             }
             button {
-                margin-top: 10px;
+                margin: 10px 10px 0 0;
             }
         </style>
     </head>
@@ -61,6 +61,7 @@
                 <input type="text" id="end" />
             </div>
             <button id="findPaths">breed!</button>
+            <button onclick="reset()">reset</button>
 
             <div id="loadingOverlay">
                 <div id="loadingIndicator">calculating...</div>
@@ -19739,7 +19740,7 @@
                 contentContainer.innerHTML = str;
             });
 
-            function showBreedingList(e) {
+            function run(e) {
                 const button = e;
                 const loadingOverlay = document.getElementById('loadingOverlay');
                 loadingOverlay.style.display = 'flex';
@@ -19754,8 +19755,8 @@
                     if (!start && !end) {
                         alert('not found');
                     }
-                    document.getElementById('start').value = idPalMap[start] || null
-                    document.getElementById('end').value = idPalMap[end] || null
+                    document.getElementById('start').value = idPalMap[start] || null;
+                    document.getElementById('end').value = idPalMap[end] || null;
 
                     const paths = getPaths(start, end);
                     displayPaths(paths);
@@ -19767,8 +19768,14 @@
                 }, 50);
             }
 
+            function reset() {
+                console.log('reset!')
+                document.getElementById('start').value = ''
+                document.getElementById('end').value = ''
+                document.getElementById('paths').innerHTML = ''
+            }
 
-            document.getElementById('findPaths').addEventListener('click', e => showBreedingList(e));
+            document.getElementById('findPaths').addEventListener('click', e => run(e));
 
             function displayPaths(paths) {
                 const pathsContainer = document.getElementById('paths');
@@ -19790,7 +19797,7 @@
                                     document.getElementById('end').value = idPalMap[path['id']];
                                 }
 
-                                showBreedingList(document.getElementById('start').value, document.getElementById('end').value);
+                                run(document.getElementById('start').value, document.getElementById('end').value);
                             };
                         } else {
                             let str = '';

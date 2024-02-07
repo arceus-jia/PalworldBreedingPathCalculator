@@ -45,7 +45,7 @@
                 box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
             }
             button {
-                margin-top: 10px;
+                margin: 10px 10px 0 0;
             }
         </style>
     </head>
@@ -61,6 +61,7 @@
                 <input type="text" id="end" />
             </div>
             <button id="findPaths">配种</button>
+            <button onclick="reset()">重置</button>
 
             <div id="loadingOverlay">
                 <div id="loadingIndicator">计算中...</div>
@@ -19738,7 +19739,7 @@
                 contentContainer.innerHTML = str;
             });
 
-            function showBreedingList(e) {
+            function run(e) {
                 const button = e;
                 const loadingOverlay = document.getElementById('loadingOverlay');
                 loadingOverlay.style.display = 'flex';
@@ -19766,7 +19767,14 @@
                 }, 50);
             }
 
-            document.getElementById('findPaths').addEventListener('click', e => showBreedingList(e));
+            function reset() {
+                console.log('reset!')
+                document.getElementById('start').value = ''
+                document.getElementById('end').value = ''
+                document.getElementById('paths').innerHTML = ''
+            }
+
+            document.getElementById('findPaths').addEventListener('click', e => run(e));
 
             function displayPaths(paths) {
                 const pathsContainer = document.getElementById('paths');
@@ -19788,7 +19796,7 @@
                                     document.getElementById('end').value = idPalMap[path['id']];
                                 }
 
-                                showBreedingList(document.getElementById('start').value, document.getElementById('end').value);
+                                run(document.getElementById('start').value, document.getElementById('end').value);
                             };
                         } else {
                             let str = '';
