@@ -12,11 +12,11 @@ Download [calculator_en.html](https://github.com/arceus-jia/PalworldBreedingPath
 <br>
 (中文直接下载[calculator_zh.html](https://github.com/arceus-jia/PalworldBreedingPathCalculator/blob/main/calculator_zh.html)) 
 <br>
-<b>You can enter the names or IDs of the father and son to get all breeding routes, or enter either the father or son to find out the breeding distance to all other pals.</b>
-
-Or visit
+Or visit web page
 - [calculator_en](https://arceus-jia.github.io/PalworldBreedingPathCalculator/calculator_en.html)
 - [calculator_zh](https://arceus-jia.github.io/PalworldBreedingPathCalculator/calculator_zh.html)
+
+<b>You can enter the names or IDs of the father and son to get all breeding routes, or enter either the father or son to find out the breeding distance to all other pals.</b>
 
 # Todo
 - Optimize Css
