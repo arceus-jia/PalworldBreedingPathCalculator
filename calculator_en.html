@@ -19765,14 +19765,15 @@
 
                     loadingOverlay.style.display = 'none';
                     button.disabled = false;
+                    window.scrollTo(0, 0);
                 }, 50);
             }
 
             function reset() {
-                console.log('reset!')
-                document.getElementById('start').value = ''
-                document.getElementById('end').value = ''
-                document.getElementById('paths').innerHTML = ''
+                console.log('reset!');
+                document.getElementById('start').value = '';
+                document.getElementById('end').value = '';
+                document.getElementById('paths').innerHTML = '';
             }
 
             document.getElementById('findPaths').addEventListener('click', e => run(e));
