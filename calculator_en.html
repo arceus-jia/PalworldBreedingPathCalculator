@@ -19534,7 +19534,7 @@
                 const path = [st];
 
                 function dfs(cur, dis) {
-                    if (distMap[st][ed] >= 4) return; // 5 is too long
+                    if (distMap[st][ed] > 4) return; // 5 is too long
                     if (cur == ed) {
                         if (dis <= distMap[st][ed]) {
                             if (path.length == 1) {
