@@ -44,6 +44,9 @@
                 border-radius: 5px;
                 box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
             }
+            button {
+                margin-top: 10px;
+            }
         </style>
     </head>
     <body>
@@ -19393,11 +19396,150 @@
                 }
             };
 
-            let idPalMap = {"1":"Lamball","2":"Cattiva","3":"Chikipi","4":"Lifmunk","5":"Foxparks","6":"Fuack","7":"Sparkit","8":"Tanzee","9":"Rooby","10":"Pengullet","11":"Penking","12":"Jolthog","13":"Gumoss","14":"Vixy","15":"Hoocrates","16":"Teafant","17":"Depresso","18":"Cremis","19":"Daedream","20":"Rushoar","21":"Nox","22":"Fuddler","23":"Killamari","24":"Mau","25":"Celaray","26":"Direhowl","27":"Tocotoco","28":"Flopie","29":"Mozzarina","30":"Bristla","31":"Gobfin","32":"Hangyu","33":"Mossanda","34":"Woolipop","35":"Caprity","36":"Melpaca","37":"Eikthyrdeer","38":"Nitewing","39":"Ribunny","40":"Incineram","41":"Cinnamoth","42":"Arsox","43":"Dumud","44":"Cawgnito","45":"Leezpunk","46":"Loupmoon","47":"Galeclaw","48":"Robinquill","49":"Gorirat","50":"Beegarde","51":"Elizabee","52":"Grintale","53":"Swee","54":"Sweepa","55":"Chillet","56":"Univolt","57":"Foxcicle","58":"Pyrin","59":"Reindrix","60":"Rayhound","61":"Kitsun","62":"Dazzi","63":"Lunaris","64":"Dinossom","65":"Surfent","66":"Maraith","67":"Digtoise","68":"Tombat","69":"Lovander","70":"Flambelle","71":"Vanwyrm","72":"Bushi","73":"Beakon","74":"Ragnahawk","75":"Katress","76":"Wixen","77":"Verdash","78":"Vaelet","79":"Sibelyx","80":"Elphidran","81":"Kelpsea","82":"Azurobe","83":"Cryolinx","84":"Blazehowl","85":"Relaxaurus","86":"Broncherry","87":"Petallia","88":"Reptyro","89":"Kingpaca","90":"Mammorest","91":"Wumpo","92":"Warsect","93":"Fenglope","94":"Felbat","95":"Quivern","96":"Blazamut","97":"Helzephyr","98":"Astegon","99":"Menasting","100":"Anubis","101":"Jormuntide","102":"Suzaku","103":"Grizzbolt","104":"Lyleen","105":"Faleris","106":"Orserk","107":"Shadowbeak","108":"Paladius","109":"Necromus","110":"Frostallion","111":"Jetragon","12b":"Jolthog Cryst","13b":"Gumoss (Special)","24b":"Mau Cryst","31b":"Gobfin Ignis","32b":"Hangyu Cryst","33b":"Mossanda Lux","37b":"Eikthyrdeer Terra","40b":"Incineram Noct","45b":"Leezpunk Ignis","48b":"Robinquill Terra","58b":"Pyrin Noct","64b":"Dinossom Lux","65b":"Surfent Terra","71b":"Vanwyrm Cryst","80b":"Elphidran Aqua","81b":"Kelpsea Ignis","84b":"Blazehowl Noct","85b":"Relaxaurus Lux","86b":"Broncherry Aqua","88b":"Ice Reptyro","89b":"Ice Kingpaca","90b":"Mammorest Cryst","91b":"Wumpo Botan","101b":"Jormuntide Ignis","102b":"Suzaku Aqua","104b":"Lyleen Noct","110b":"Frostallion Noct"}
+            let idPalMap = {
+                1: 'Lamball',
+                2: 'Cattiva',
+                3: 'Chikipi',
+                4: 'Lifmunk',
+                5: 'Foxparks',
+                6: 'Fuack',
+                7: 'Sparkit',
+                8: 'Tanzee',
+                9: 'Rooby',
+                10: 'Pengullet',
+                11: 'Penking',
+                12: 'Jolthog',
+                13: 'Gumoss',
+                14: 'Vixy',
+                15: 'Hoocrates',
+                16: 'Teafant',
+                17: 'Depresso',
+                18: 'Cremis',
+                19: 'Daedream',
+                20: 'Rushoar',
+                21: 'Nox',
+                22: 'Fuddler',
+                23: 'Killamari',
+                24: 'Mau',
+                25: 'Celaray',
+                26: 'Direhowl',
+                27: 'Tocotoco',
+                28: 'Flopie',
+                29: 'Mozzarina',
+                30: 'Bristla',
+                31: 'Gobfin',
+                32: 'Hangyu',
+                33: 'Mossanda',
+                34: 'Woolipop',
+                35: 'Caprity',
+                36: 'Melpaca',
+                37: 'Eikthyrdeer',
+                38: 'Nitewing',
+                39: 'Ribunny',
+                40: 'Incineram',
+                41: 'Cinnamoth',
+                42: 'Arsox',
+                43: 'Dumud',
+                44: 'Cawgnito',
+                45: 'Leezpunk',
+                46: 'Loupmoon',
+                47: 'Galeclaw',
+                48: 'Robinquill',
+                49: 'Gorirat',
+                50: 'Beegarde',
+                51: 'Elizabee',
+                52: 'Grintale',
+                53: 'Swee',
+                54: 'Sweepa',
+                55: 'Chillet',
+                56: 'Univolt',
+                57: 'Foxcicle',
+                58: 'Pyrin',
+                59: 'Reindrix',
+                60: 'Rayhound',
+                61: 'Kitsun',
+                62: 'Dazzi',
+                63: 'Lunaris',
+                64: 'Dinossom',
+                65: 'Surfent',
+                66: 'Maraith',
+                67: 'Digtoise',
+                68: 'Tombat',
+                69: 'Lovander',
+                70: 'Flambelle',
+                71: 'Vanwyrm',
+                72: 'Bushi',
+                73: 'Beakon',
+                74: 'Ragnahawk',
+                75: 'Katress',
+                76: 'Wixen',
+                77: 'Verdash',
+                78: 'Vaelet',
+                79: 'Sibelyx',
+                80: 'Elphidran',
+                81: 'Kelpsea',
+                82: 'Azurobe',
+                83: 'Cryolinx',
+                84: 'Blazehowl',
+                85: 'Relaxaurus',
+                86: 'Broncherry',
+                87: 'Petallia',
+                88: 'Reptyro',
+                89: 'Kingpaca',
+                90: 'Mammorest',
+                91: 'Wumpo',
+                92: 'Warsect',
+                93: 'Fenglope',
+                94: 'Felbat',
+                95: 'Quivern',
+                96: 'Blazamut',
+                97: 'Helzephyr',
+                98: 'Astegon',
+                99: 'Menasting',
+                100: 'Anubis',
+                101: 'Jormuntide',
+                102: 'Suzaku',
+                103: 'Grizzbolt',
+                104: 'Lyleen',
+                105: 'Faleris',
+                106: 'Orserk',
+                107: 'Shadowbeak',
+                108: 'Paladius',
+                109: 'Necromus',
+                110: 'Frostallion',
+                111: 'Jetragon',
+                '12b': 'Jolthog Cryst',
+                '13b': 'Gumoss (Special)',
+                '24b': 'Mau Cryst',
+                '31b': 'Gobfin Ignis',
+                '32b': 'Hangyu Cryst',
+                '33b': 'Mossanda Lux',
+                '37b': 'Eikthyrdeer Terra',
+                '40b': 'Incineram Noct',
+                '45b': 'Leezpunk Ignis',
+                '48b': 'Robinquill Terra',
+                '58b': 'Pyrin Noct',
+                '64b': 'Dinossom Lux',
+                '65b': 'Surfent Terra',
+                '71b': 'Vanwyrm Cryst',
+                '80b': 'Elphidran Aqua',
+                '81b': 'Kelpsea Ignis',
+                '84b': 'Blazehowl Noct',
+                '85b': 'Relaxaurus Lux',
+                '86b': 'Broncherry Aqua',
+                '88b': 'Ice Reptyro',
+                '89b': 'Ice Kingpaca',
+                '90b': 'Mammorest Cryst',
+                '91b': 'Wumpo Botan',
+                '101b': 'Jormuntide Ignis',
+                '102b': 'Suzaku Aqua',
+                '104b': 'Lyleen Noct',
+                '110b': 'Frostallion Noct'
+            };
             let palIds = Object.keys(idPalMap);
-            console.log('palids::',palIds)
-            palIds.sort(cmpId)
-            console.log('palids::',palIds)
+            console.log('palids::', palIds);
+            palIds.sort(cmpId);
+            console.log('palids::', palIds);
             let vecsMap = {};
             let distMap = {};
             let palIdMap = {};
@@ -19485,12 +19627,13 @@
                 let array = palIds.map(son => {
                     return {
                         id: son,
-                        count: distMap[p][son]
+                        count: distMap[p][son],
+                        type: 'son'
                     };
                 });
                 array.sort((a, b) => {
                     if (a.count == b.count) {
-                        return cmpId(a.id, b.id)
+                        return cmpId(a.id, b.id);
                     }
                     return a.count - b.count;
                 });
@@ -19509,12 +19652,13 @@
                 let array = palIds.map(p => {
                     return {
                         id: p,
-                        count: distMap[p][s]
+                        count: distMap[p][s],
+                        type: 'parent'
                     };
                 });
                 array.sort((a, b) => {
                     if (a.count == b.count) {
-                        return cmpId(a.id, b.id)
+                        return cmpId(a.id, b.id);
                     }
                     return a.count - b.count;
                 });
@@ -19595,8 +19739,8 @@
                 contentContainer.innerHTML = str;
             });
 
-            document.getElementById('findPaths').addEventListener('click', function () {
-                const button = this;
+            function showBreedingList(e) {
+                const button = e;
                 const loadingOverlay = document.getElementById('loadingOverlay');
                 loadingOverlay.style.display = 'flex';
                 button.disabled = true;
@@ -19610,6 +19754,9 @@
                     if (!start && !end) {
                         alert('not found');
                     }
+                    document.getElementById('start').value = idPalMap[start] || null
+                    document.getElementById('end').value = idPalMap[end] || null
+
                     const paths = getPaths(start, end);
                     displayPaths(paths);
 
@@ -19618,7 +19765,10 @@
                     loadingOverlay.style.display = 'none';
                     button.disabled = false;
                 }, 50);
-            });
+            }
+
+
+            document.getElementById('findPaths').addEventListener('click', e => showBreedingList(e));
 
             function displayPaths(paths) {
                 const pathsContainer = document.getElementById('paths');
@@ -19629,10 +19779,21 @@
                 } else {
                     const list = document.createElement('ul');
                     paths.map(path => {
-                        let str = '';
+                        let element;
                         if (!(path instanceof Array)) {
-                            str += `${idPalMap[path['id']]}: ${path['count']}`;
+                            element = document.createElement('button');
+                            element.textContent = `${idPalMap[path['id']]}: ${path['count']}`;
+                            element.onclick = function () {
+                                if (path['type'] == 'parent') {
+                                    document.getElementById('start').value = idPalMap[path['id']];
+                                } else {
+                                    document.getElementById('end').value = idPalMap[path['id']];
+                                }
+
+                                showBreedingList(document.getElementById('start').value, document.getElementById('end').value);
+                            };
                         } else {
+                            let str = '';
                             for (let i = 0; i < path.length - 1; i++) {
                                 let p1id = path[i];
                                 let p2ids = sppMap[path[i + 1]][path[i]];
@@ -19642,10 +19803,12 @@
                                 }
 
                                 str += `step${i + 1}: ${idPalMap[p1id]} + ${p2str} = ${idPalMap[path[i + 1]]}。`;
+                                element = document.createElement('span');
+                                element.textContent = str;
                             }
                         }
                         const listItem = document.createElement('li');
-                        listItem.textContent = str;
+                        listItem.appendChild(element);
                         list.appendChild(listItem);
                     });
                     pathsContainer.appendChild(list);

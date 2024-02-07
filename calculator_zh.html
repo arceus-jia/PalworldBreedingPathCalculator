@@ -44,6 +44,9 @@
                 border-radius: 5px;
                 box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
             }
+            button {
+                margin-top: 10px;
+            }
         </style>
     </head>
     <body>
@@ -19532,11 +19535,10 @@
                 '104b': '黑月女王',
                 '110b': '唤夜兽'
             };
-
             let palIds = Object.keys(idPalMap);
-            console.log('palids::',palIds)
-            palIds.sort(cmpId)
-            console.log('palids::',palIds)
+            console.log('palids::', palIds);
+            palIds.sort(cmpId);
+            console.log('palids::', palIds);
             let vecsMap = {};
             let distMap = {};
             let palIdMap = {};
@@ -19624,12 +19626,13 @@
                 let array = palIds.map(son => {
                     return {
                         id: son,
-                        count: distMap[p][son]
+                        count: distMap[p][son],
+                        type: 'son'
                     };
                 });
                 array.sort((a, b) => {
                     if (a.count == b.count) {
-                        return cmpId(a.id, b.id)
+                        return cmpId(a.id, b.id);
                     }
                     return a.count - b.count;
                 });
@@ -19648,12 +19651,13 @@
                 let array = palIds.map(p => {
                     return {
                         id: p,
-                        count: distMap[p][s]
+                        count: distMap[p][s],
+                        type: 'parent'
                     };
                 });
                 array.sort((a, b) => {
                     if (a.count == b.count) {
-                        return cmpId(a.id, b.id)
+                        return cmpId(a.id, b.id);
                     }
                     return a.count - b.count;
                 });
@@ -19734,8 +19738,8 @@
                 contentContainer.innerHTML = str;
             });
 
-            document.getElementById('findPaths').addEventListener('click', function () {
-                const button = this;
+            function showBreedingList(e) {
+                const button = e;
                 const loadingOverlay = document.getElementById('loadingOverlay');
                 loadingOverlay.style.display = 'flex';
                 button.disabled = true;
@@ -19749,6 +19753,9 @@
                     if (!start && !end) {
                         alert('not found');
                     }
+                    document.getElementById('start').value = idPalMap[start] || null
+                    document.getElementById('end').value = idPalMap[end] || null
+
                     const paths = getPaths(start, end);
                     displayPaths(paths);
 
@@ -19757,7 +19764,9 @@
                     loadingOverlay.style.display = 'none';
                     button.disabled = false;
                 }, 50);
-            });
+            }
+
+            document.getElementById('findPaths').addEventListener('click', e => showBreedingList(e));
 
             function displayPaths(paths) {
                 const pathsContainer = document.getElementById('paths');
@@ -19768,10 +19777,21 @@
                 } else {
                     const list = document.createElement('ul');
                     paths.map(path => {
-                        let str = '';
+                        let element;
                         if (!(path instanceof Array)) {
-                            str += `${idPalMap[path['id']]}: ${path['count']}`;
+                            element = document.createElement('button');
+                            element.textContent = `${idPalMap[path['id']]}: ${path['count']}`;
+                            element.onclick = function () {
+                                if (path['type'] == 'parent') {
+                                    document.getElementById('start').value = idPalMap[path['id']];
+                                } else {
+                                    document.getElementById('end').value = idPalMap[path['id']];
+                                }
+
+                                showBreedingList(document.getElementById('start').value, document.getElementById('end').value);
+                            };
                         } else {
+                            let str = '';
                             for (let i = 0; i < path.length - 1; i++) {
                                 let p1id = path[i];
                                 let p2ids = sppMap[path[i + 1]][path[i]];
@@ -19781,10 +19801,12 @@
                                 }
 
                                 str += `step${i + 1}: ${idPalMap[p1id]} + ${p2str} = ${idPalMap[path[i + 1]]}。`;
+                                element = document.createElement('span');
+                                element.textContent = str;
                             }
                         }
                         const listItem = document.createElement('li');
-                        listItem.textContent = str;
+                        listItem.appendChild(element);
                         list.appendChild(listItem);
                     });
                     pathsContainer.appendChild(list);
