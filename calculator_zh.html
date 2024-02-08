@@ -19593,7 +19593,7 @@
                 if (!map[key1]) {
                     map[key1] = {};
                 }
-                if (map[key1][key2] & (value instanceof Array)) {
+                if (map[key1][key2] && (value instanceof Array)) {
                     map[key1][key2] = [...map[key1][key2], ...value];
                     map[key1][key2] = map[key1][key2].filter((v, i, a) => a.indexOf(v) == i);
                 } else {
